@@ -30,7 +30,6 @@ data/raw/
 data/processed/
 *.jpg
 *.jpeg
-*.png
 *.mp4
 *.avi
 *.mov
