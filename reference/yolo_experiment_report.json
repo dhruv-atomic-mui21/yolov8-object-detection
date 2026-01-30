@@ -1,0 +1,31 @@
+{
+  "experiment_info": {
+    "date": "2026-01-30 10:29:12",
+    "device": "cuda",
+    "model": "YOLOv8n",
+    "ultralytics_version": "8.4.9",
+    "pytorch_version": "2.9.0+cu126",
+    "num_images": 5
+  },
+  "detection_summary": {
+    "total_images": 5,
+    "total_detections": 36,
+    "avg_per_image": 7.2,
+    "avg_confidence": 0.6031144876033068,
+    "avg_inference_ms": 12.33673095703125
+  },
+  "top_classes": {
+    "person": 18,
+    "car": 10,
+    "traffic light": 5,
+    "tie": 1,
+    "bus": 1,
+    "stop sign": 1
+  },
+  "performance": {
+    "640x640": {
+      "avg_time_ms": 7.631921768188477,
+      "fps": 131.02859677731752
+    }
+  }
+}

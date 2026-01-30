@@ -1,0 +1,74 @@
+# YOLOv8 Object Detection Configuration
+
+# Model Configuration
+model:
+  weights: "yolov8n.pt"  # Options: yolov8n.pt, yolov8s.pt, yolov8m.pt, yolov8l.pt, yolov8x.pt
+  conf_threshold: 0.5
+  iou_threshold: 0.45
+  img_size: 640
+  device: null  # null for auto-detect (cuda if available, else cpu)
+  half: false   # FP16 inference
+
+# Training Configuration (for custom training)
+training:
+  epochs: 100
+  batch_size: 16
+  lr0: 0.01           # Initial learning rate
+  lrf: 0.01           # Final learning rate factor
+  momentum: 0.937
+  weight_decay: 0.0005
+  warmup_epochs: 3
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  patience: 50        # Early stopping patience
+
+# Data Augmentation
+augmentation:
+  hsv_h: 0.015        # Hue augmentation
+  hsv_s: 0.7          # Saturation augmentation
+  hsv_v: 0.4          # Value augmentation
+  degrees: 0.0        # Rotation degrees
+  translate: 0.1      # Translation
+  scale: 0.5          # Scale
+  shear: 0.0          # Shear
+  perspective: 0.0    # Perspective
+  flipud: 0.0         # Flip up-down probability
+  fliplr: 0.5         # Flip left-right probability
+  mosaic: 1.0         # Mosaic augmentation probability
+  mixup: 0.0          # Mixup augmentation probability
+
+# Loss Configuration
+loss:
+  box: 7.5            # Box loss weight
+  cls: 0.5            # Classification loss weight
+  dfl: 1.5            # Distribution focal loss weight
+
+# Inference Configuration
+inference:
+  conf_threshold: 0.5
+  iou_threshold: 0.45
+  max_detections: 300
+  agnostic_nms: false
+  retina_masks: false  # For segmentation
+
+# Paths
+paths:
+  data_dir: "data/"
+  models_dir: "models/"
+  weights_dir: "models/weights/"
+  results_dir: "results/"
+  logs_dir: "logs/"
+
+# Logging
+logging:
+  level: "INFO"
+  tensorboard: true
+  wandb: false
+  save_period: 10     # Save checkpoint every N epochs
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 1
+  reload: false

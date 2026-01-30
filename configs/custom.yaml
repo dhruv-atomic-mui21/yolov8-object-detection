@@ -1,0 +1,56 @@
+# Custom Dataset Configuration for YOLOv7
+# Update this file with your dataset information
+
+# Dataset paths (relative to project root)
+path: data/processed/custom
+train: train/images
+val: val/images
+test: test/images
+
+# Number of classes
+nc: 3
+
+# Class names
+names:
+  - class1
+  - class2
+  - class3
+
+# Training hyperparameters (adjust for your dataset)
+# Smaller datasets may benefit from more augmentation and longer training
+
+# Training settings
+epochs: 300
+batch_size: 16
+img_size: 640
+lr0: 0.01
+
+# Augmentation (increase for small datasets)
+augmentation:
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  degrees: 10.0
+  translate: 0.2
+  scale: 0.9
+  shear: 0.0
+  perspective: 0.0
+  flipud: 0.0
+  fliplr: 0.5
+  mosaic: 1.0
+  mixup: 0.15
+
+# Example: Custom dataset for detecting vehicles
+# Uncomment and modify for your use case:
+#
+# path: data/processed/vehicles
+# train: train/images
+# val: val/images
+# test: test/images
+# nc: 5
+# names:
+#   - car
+#   - truck
+#   - bus
+#   - motorcycle
+#   - bicycle
