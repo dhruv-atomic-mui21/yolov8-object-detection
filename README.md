@@ -30,13 +30,45 @@ Real-time object detection using **YOLOv8** from Ultralytics. Production-ready i
 
 *Tested on NVIDIA Tesla T4 GPU*
 
+### Performance Benchmark
+
+![Performance Benchmark](assets/performance_benchmark.png)
+
+*Inference time and throughput across different image sizes*
+
+### Timing Analysis
+
+![Timing Analysis](assets/timing_analysis.png)
+
+*Consistent inference timing with mean of 9.8ms across 100 runs*
+
+## Experiment Results
+
+### Confidence Analysis
+
+![Confidence Analysis](assets/confidence_analysis.png)
+
+*Distribution of detection confidences and per-class confidence boxplots*
+
+### Threshold Effects
+
+![Threshold Effects](assets/threshold_effects.png)
+
+*Impact of confidence threshold on detections, average confidence, and class diversity*
+
+### Per-Image Statistics
+
+![Per-Image Statistics](assets/per_image_statistics.png)
+
+*Detailed breakdown of detections, inference time, confidence, and diversity per test image*
+
 ## Quick Start
 
 ### Installation
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/yolov8-object-detection.git
+git clone https://github.com/dhruv-atomic-mui21/yolov8-object-detection.git
 cd yolov8-object-detection
 
 # Install dependencies
@@ -91,15 +123,16 @@ yolov8-object-detection/
 ├── api/                    # REST API
 │   ├── app.py             # FastAPI application
 │   └── schemas.py         # Pydantic models
+├── assets/                # Visualization images
 ├── configs/
 │   └── config.yaml        # Configuration
-├── data/
-│   ├── raw/               # Original data
-│   └── processed/         # Processed data
-├── models/
-│   └── weights/           # Model weights
 ├── notebooks/
 │   └── yolov8_detection.ipynb  # Demo notebook
+├── reference/             # Experiment data files
+├── scripts/
+│   ├── download_weights.py
+│   ├── prepare_data.py
+│   └── train.py
 ├── src/
 │   ├── detector.py        # Main detector class
 │   ├── model.py           # Model utilities
@@ -139,16 +172,6 @@ docker run -p 8000:8000 yolov8-detection
 docker run --gpus all -p 8000:8000 yolov8-detection
 ```
 
-## Notebooks
-
-Explore the interactive notebook in `notebooks/yolov8_detection.ipynb`:
-
-- Model initialization and warmup
-- Single and multi-image detection
-- Statistical analysis of detections
-- Performance benchmarking
-- Export and reporting
-
 ## Testing
 
 ```bash
@@ -158,24 +181,6 @@ pytest tests/ -v
 # Run with coverage
 pytest tests/ --cov=src --cov-report=html
 ```
-
-## Experiment Results
-
-From our benchmark experiments:
-
-| Metric | Value |
-|--------|-------|
-| Total Detections | 36 |
-| Average Confidence | 0.78 |
-| Average Inference | 7.6 ms |
-| Throughput | 131 FPS |
-
-**Top Detected Classes:**
-- person: 18 detections
-- car: 10 detections  
-- traffic light: 5 detections
-- bus: 2 detections
-- stop sign: 1 detection
 
 ## Tech Stack
 
